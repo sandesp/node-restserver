@@ -14,7 +14,7 @@ app.get('/usuario', verificaToken, function(req, res) {
     let limite = req.query.limite;
     limite = Number(limite);
 
-    Usuario.find({ rol: 'Negocio' }, 'nombre email rol google img')
+    Usuario.find({}, 'nombre email rol google img')
         .skip(desde)
         .limit(limite)
         .exec((err, usuarios) => {
@@ -24,7 +24,7 @@ app.get('/usuario', verificaToken, function(req, res) {
                     err: 'Token no válido'
                 });
             }
-            Usuario.count({ rol: 'Negocio' }, (err, conteo) => {
+            Usuario.count({}, (err, conteo) => {
                 res.json({
                     ok: true,
                     usuarios,
