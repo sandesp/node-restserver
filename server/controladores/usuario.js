@@ -8,7 +8,7 @@ const app = express();
 
 // get usuarios
 app.get('/usuario', verificaToken, function(req, res) {
-    let desde = req.query.desde | 0;
+    let desde = req.query.desde || 0;
     desde = Number(desde);
 
     let limite = req.query.limite;
