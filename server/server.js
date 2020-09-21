@@ -17,10 +17,7 @@ app.use(bodyParser.json())
 mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true },
     (err, res) => {
         if (err) {
-            return res.status(503).json({
-                ok: false,
-                err: 'Error en conexion a la base de datos'
-            });
+            throw err;
         }
         console.log('Base de datos ONLINE');
     });
