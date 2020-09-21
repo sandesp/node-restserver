@@ -13,7 +13,9 @@ app.post('/login', (req, res) => {
         if (err) {
             return res.status(500).json({
                 ok: false,
-                err: 'Error en el servidor'
+                err: {
+                    message: 'Error en el servidor'
+                }
             });
         }
         if (!usuarioDb) {
