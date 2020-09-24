@@ -37,7 +37,7 @@ app.get('/usuario', verificaToken, function(req, res) {
 });
 
 //crear usuarios
-app.post('/usuario', [verificaToken, verificaAdminRole], function(req, res) {
+app.post('/usuario', [verificaAdminRole], function(req, res) {
     let body = req.body;
     let usuario = new Usuario({
         nombre: body.nombre,
