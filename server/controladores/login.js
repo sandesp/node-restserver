@@ -85,9 +85,7 @@ app.post('/google', async(req, res) => {
         if (err) {
             return res.status(500).json({
                 ok: false,
-                err: {
-                    message: 'Error en el servidor 2'
-                }
+                err
             });
         }
 
