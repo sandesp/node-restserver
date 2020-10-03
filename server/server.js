@@ -6,7 +6,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
-
+const hbs = require('hbs');
+//require('./hbs/helpers');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -18,6 +19,13 @@ app.use(bodyParser.json())
 // habilitar carpeta public
 app.use(express.static(path.resolve(__dirname, '../public')));
 
+app.set('view engine', 'hbs');
+app.get('/', (req, res) => {
+    res.render('home', {
+        nombre: 'sanDra espiRitusanto'
+    });
+});
+
 // conectar a base de datos
 mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true },
     (err, res) => {
@@ -26,6 +34,7 @@ mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useCreateIndex: tru
         }
         console.log('Base de datos ONLINE');
     });
+
 
 
 app.listen(process.env.PORT, () => {
