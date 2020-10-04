@@ -3,3 +3,10 @@
 
 node_modules/
 
+/uploads/productos/*
+/uploads/usuarios/*
+/uploads/categorias/*
+
+!/uploads/productos/.gitkeep
+!/uploads/usuarios/.gitkeep
+!/uploads/categorias/.gitkeep
